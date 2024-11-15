@@ -350,7 +350,7 @@ def update_employee():
     firstname = simpledialog.askstring("Input", "Enter New First Name (Leave blank if no change):")
     lastname = simpledialog.askstring("Input", "Enter New Last Name (Leave blank if no change):")
     email = simpledialog.askstring("Input", "Enter New Email (Leave blank if no change):")
-    projectid = simpledialog.askstring("Input", "Enter New Project ID (Leave blank if no change):")
+    position = simpledialog.askstring("Input", "Enter New Position (Leave blank if no change):")
     query = "UPDATE EMPLOYEE SET "
     params = []
     
@@ -363,10 +363,9 @@ def update_employee():
     if email:
         query += "email = %s, "
         params.append(email)
-   
-    if projectid:
-        query += "projectid = %s, "
-        params.append(projectid)
+    if position:
+        query += "position = %s, "
+        params.append(position)
 
     query = query.rstrip(', ')  # Remove the last comma
     query += " WHERE employeeid = %s"
